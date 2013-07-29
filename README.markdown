@@ -222,6 +222,21 @@ original copyright: "Copyright 2012 m6d Media6degrees"
 	> movies  us      Star Wars iv    150     3
 	> movies  us      casablanca      100     4
 
+### least(column1, column2.....)
+returns the lowest value amongst several columns
+
+Inspired by NexR's 'greatest' function (https://github.com/nexr/hive-udf)
+
+```
+create temporary function least as 'com.livingsocial.hive.udf.GenericUDFLeast';
+
+select least('2013-05-24','2012-05-09','1004-67-83') from test limit 1
+> 1004-67-83
+
+select least(0,1,3,4,65) from test limit 1
+> 0
+```
+
 ## Code Status
 [![Build Status](https://travis-ci.org/livingsocial/HiveSwarm.png)](https://travis-ci.org/livingsocial/HiveSwarm)
 
